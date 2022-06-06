@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"os"
 	"os/signal"
@@ -12,11 +13,13 @@ import (
 
 func main() {
 	//加载环境变量
-	filePath := ".env"
-	if err := godotenv.Load(filePath); err != nil {
+	envPath := ".env"
+	flag.StringVar(&envPath, "c", ".env", "配置文件")
+	flag.Parse()
+	if err := godotenv.Load(envPath); err != nil {
 		panic(err)
 	}
-	log.Println("env loadded from file ", filePath)
+	log.Println("env loadded from file ", envPath)
 	err, _ := http.Start()
 	if err != nil {
 		panic(err)
