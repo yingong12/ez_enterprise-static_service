@@ -15,8 +15,8 @@ func loadRouter() (router *gin.Engine) {
 	//TODO: 考虑单独迁出成为static服务
 	statics := router.Group("static")
 	{
-		staticRootVALS := os.Getenv("STATIC_ROOT") + "/vals"
-		staticRootValIMG := os.Getenv("STATIC_ROOT") + "/imgs"
+		staticRootVALS := os.Getenv("STATIC_ROOT") + "/val"
+		staticRootValIMG := os.Getenv("STATIC_ROOT") + "/img"
 		//TODO:添加次数统计中间件
 		statics.Static("/vals/", staticRootVALS)
 		statics.Static("/imgs/", staticRootValIMG)
