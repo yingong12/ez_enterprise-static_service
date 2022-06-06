@@ -21,5 +21,9 @@ func loadRouter() (router *gin.Engine) {
 		statics.Static("/val/", staticRootVALS)
 		statics.Static("/img/", staticRootValIMG)
 	}
+	upload := router.Group("upload")
+	{
+		upload.POST("img", controller.UploadImg)
+	}
 	return
 }

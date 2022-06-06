@@ -3,7 +3,7 @@ port?=8686
 
 
 run: 
-	go run main.go run -c .env -p $(port)
+	go run main.go
 
 build:export GOOS=$(os)
 build:export GOARCH=amd64
